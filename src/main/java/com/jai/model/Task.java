@@ -1,5 +1,10 @@
 package com.jai.model;
 
+
+
+
+
+import java.time.LocalDate;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -32,16 +37,67 @@ public class Task {
 	private String description;
 	@Column(name="userid",length =50,nullable = false,unique = false)
 	private String userId;
-	@Column(name="createdat",length =50)
-	@Temporal(TemporalType.DATE)
-	private Date createdAt;
-	@Column(name="endedat",length =50)
-	@Temporal(TemporalType.DATE)
-	private Date endedAt ;
+	@Column(name="createsat")
+	private LocalDate createdAt;
+	@Column(name="endedat")
+	private LocalDate endedAt ;
 	@Column(name="status")
 	@Enumerated(EnumType.STRING)
 	private Status status ;
-	
-	
 
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getTaskName() {
+		return taskName;
+	}
+
+	public void setTaskName(String taskName) {
+		this.taskName = taskName;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+	public LocalDate getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(LocalDate createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public LocalDate getEndedAt() {
+		return endedAt;
+	}
+
+	public void setEndedAt(LocalDate endedAt) {
+		this.endedAt = endedAt;
+	}
+
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
 }

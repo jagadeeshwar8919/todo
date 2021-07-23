@@ -9,5 +9,9 @@ import com.jai.model.Task;
 public interface TaskService {
 	
 	List<Task> getTasks();
+	
+	String addTask(Task task);
+	
+	Task gettask(Long id);
 
 }

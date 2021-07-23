@@ -20,6 +20,17 @@ public class TaskServiceImple implements TaskService{
 		return taskrepo.findAll();
 	}
 
-	
+	@Override
+	public String addTask(Task task) {
+		   taskrepo.save(task);
+		return "Added Succesfully";
+	}
+
+	@Override
+	public Task gettask(Long id) {
+		// TODO Auto-generated method stub
+		return taskrepo.getById(id);
+	}
+
 
 }
