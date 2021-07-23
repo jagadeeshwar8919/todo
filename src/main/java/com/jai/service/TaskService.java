@@ -14,4 +14,8 @@ public interface TaskService {
 	
 	Task gettask(Long id);
 
+	Task updateTask(Task task);
+
+	String deleteTask(Long id);
+
 }

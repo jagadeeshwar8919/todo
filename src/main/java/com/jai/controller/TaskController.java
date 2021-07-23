@@ -7,10 +7,7 @@ import java.util.List;
 import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.jai.model.Task;
 import com.jai.service.TaskServiceImple;
@@ -28,15 +25,21 @@ public class TaskController {
 	}
 	@GetMapping("/task/{id}")
 	public Task getTask(@PathVariable("id")Long id) {
-		System.out.println("the passing id is :  "+id);
-//		long iD=Long.parseLong(id);
 		return taskservice.gettask(id);
 	}
 	@PostMapping("/add")
-	public String addTask(Task t){
-//		t.setCreatedAt(LocalDate.now());
-//		return taskservice.addTask(t);
-		return t.getDescription();
+	public String addTask(@RequestBody Task t){
+		t.setCreatedAt(LocalDate.now());
+		return taskservice.addTask(t);
+	}
+	@PutMapping("/update")
+	public Task updateTask(@RequestBody Task t){
+		return taskservice.updateTask(t);
+	}
+
+	@DeleteMapping("/delete/{id}")
+	public String deleteTask(@PathVariable("id")Long id){
+		return taskservice.deleteTask(id);
 	}
 
 }

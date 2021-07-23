@@ -21,6 +21,18 @@ public class TaskServiceImple implements TaskService{
 	}
 
 	@Override
+	public String deleteTask(Long id) {
+		taskrepo.deleteById(id);
+		return id+"  Deleted Successfully";
+	}
+
+	@Override
+	public Task updateTask(Task task) {
+		taskrepo.save(task);
+		return taskrepo.getById(task.getId());
+	}
+
+	@Override
 	public String addTask(Task task) {
 		   taskrepo.save(task);
 		return "Added Succesfully";
